@@ -1,0 +1,21 @@
+ public static String compress(String s){
+        StringBuilder stringBuilder = new StringBuilder();
+        char last = s.charAt(0);
+        int length = s.length();
+        int count = 1;
+        for(int i = 1; i < length; i++){
+            if(s.charAt(i) == last){
+                count ++;
+            }else{
+                stringBuilder.append(last);
+                stringBuilder.append(count);
+                last = s.charAt(i);
+                count = 1;
+            }
+        }
+
+        stringBuilder.append(last);
+        stringBuilder.append(count);
+        
+        return stringBuilder.length() > length ? s : stringBuilder.toString();
+    }
